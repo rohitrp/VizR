@@ -1,38 +1,22 @@
 import {Component} from 'angular2/core';
-import {LoginComponent} from './../auth/login.component';
-import {SignupComponent} from './../auth/signup.component';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {AuthComponent} from "../auth/auth.component";
 
 @Component({
   selector: 'viz-app',
   directives: [ROUTER_DIRECTIVES],
   template: `
-    <div class="container">
-      <div class="row">
-        <nav>
-          
-          <a [routerLink]="['Login']">Login</a>
-          <a [routerLink]="['Signup']">Signup</a>
-        </nav>
-      </div>
-    </div>
     <router-outlet></router-outlet>
   `,
-  styleUrls: ['app/home/template/app.component.css'],
   providers: [ROUTER_PROVIDERS]
 })
 
 @RouteConfig([
   {
-    path: '/login',
-    name: 'Login',
-    component: LoginComponent,
+    path: '/auth/...',
+    name: 'Auth',
+    component: AuthComponent,
     useAsDefault: true
-  },
-  {
-    path: '/signup',
-    name: 'Signup',
-    component: SignupComponent
   }
 ])
 

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', "../form/login.component", "../form/signup.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, auth_component_1;
-    var AppComponent;
+    var core_1, router_1, login_component_1, signup_component_1;
+    var AuthComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -20,34 +20,41 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (auth_component_1_1) {
-                auth_component_1 = auth_component_1_1;
+            function (login_component_1_1) {
+                login_component_1 = login_component_1_1;
+            },
+            function (signup_component_1_1) {
+                signup_component_1 = signup_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            AuthComponent = (function () {
+                function AuthComponent() {
                 }
-                AppComponent = __decorate([
+                AuthComponent = __decorate([
                     core_1.Component({
-                        selector: 'viz-app',
-                        directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n    <router-outlet></router-outlet>\n  ",
-                        providers: [router_1.ROUTER_PROVIDERS]
+                        selector: 'auth',
+                        templateUrl: 'app/auth/template/auth.component.html',
+                        styleUrls: ['app/auth/template/auth.component.css'],
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         {
-                            path: '/auth/...',
-                            name: 'Auth',
-                            component: auth_component_1.AuthComponent,
-                            useAsDefault: true
+                            path: '/login',
+                            name: 'Login',
+                            component: login_component_1.LoginComponent
+                        },
+                        {
+                            path: '/signup',
+                            name: 'Signup',
+                            component: signup_component_1.SignupComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], AuthComponent);
+                return AuthComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("AuthComponent", AuthComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=auth.component.js.map

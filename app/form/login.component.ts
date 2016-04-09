@@ -3,8 +3,8 @@ import {Http, Response} from 'angular2/http';
 
 @Component({
   selector: 'login',
-  templateUrl: 'app/auth/template/form.html',
-  styleUrls: ['app/auth/template/style.css']
+  templateUrl: 'app/form/template/form.html',
+  styleUrls: ['app/form/template/style.css']
 })
 
 export class LoginComponent {
@@ -22,7 +22,6 @@ export class LoginComponent {
       .map((res: Response) => res.json())
       .subscribe(
         data => {
-          console.log(data);
           this.result = data.allow ? 'success' : 'failure';
         },
         err => {

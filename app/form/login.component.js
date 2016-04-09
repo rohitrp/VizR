@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var SignupComponent;
+    var LoginComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,37 +21,37 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            SignupComponent = (function () {
-                function SignupComponent(http) {
+            LoginComponent = (function () {
+                function LoginComponent(http) {
                     this.http = http;
-                    this.formType = "Sign up";
+                    this.formType = "Log in";
                     this.result = '';
-                    this.successMsg = 'Registration successful';
-                    this.failureMsg = 'User exists';
+                    this.successMsg = 'Logging in...';
+                    this.failureMsg = 'Username or Password is incorrect';
                 }
-                SignupComponent.prototype.onSubmit = function (username, password) {
+                LoginComponent.prototype.onSubmit = function (username, password) {
                     var _this = this;
-                    this.http.get('/new?username=' + username + '&password=' + password)
+                    this.http.get('/existing?username=' + username + '&password=' + password)
                         .map(function (res) { return res.json(); })
                         .subscribe(function (data) {
-                        _this.result = data.added ? 'success' : 'failure';
+                        _this.result = data.allow ? 'success' : 'failure';
                     }, function (err) {
                         _this.result = '';
                         console.error(err);
-                    }, function () { return console.log("Done"); });
+                    }, function () { return console.log('done'); });
                 };
-                SignupComponent = __decorate([
+                LoginComponent = __decorate([
                     core_1.Component({
-                        selector: 'signup',
-                        templateUrl: 'app/auth/template/form.html',
-                        styleUrls: ['app/auth/template/style.css']
+                        selector: 'login',
+                        templateUrl: 'app/form/template/form.html',
+                        styleUrls: ['app/form/template/style.css']
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], SignupComponent);
-                return SignupComponent;
+                ], LoginComponent);
+                return LoginComponent;
             }());
-            exports_1("SignupComponent", SignupComponent);
+            exports_1("LoginComponent", LoginComponent);
         }
     }
 });
-//# sourceMappingURL=signup.component.js.map
+//# sourceMappingURL=login.component.js.map

@@ -3,8 +3,8 @@ import {Http, Response} from 'angular2/http';
 
 @Component({
   selector: 'signup',
-  templateUrl: 'app/auth/template/form.html',
-  styleUrls: ['app/auth/template/style.css']
+  templateUrl: 'app/form/template/form.html',
+  styleUrls: ['app/form/template/style.css']
 })
 
 export class SignupComponent {
