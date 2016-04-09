@@ -10,6 +10,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
     <div class="container">
       <div class="row">
         <nav>
+          
           <a [routerLink]="['Login']">Login</a>
           <a [routerLink]="['Signup']">Signup</a>
         </nav>
@@ -22,6 +23,11 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 })
 
 @RouteConfig([
+  {
+    path: '/',
+    name: 'Home',
+    component: LoginComponent
+  },
   {
     path: '/login',
     name: 'Login',

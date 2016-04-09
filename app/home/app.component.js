@@ -34,11 +34,16 @@ System.register(['angular2/core', './../auth/login.component', './../auth/signup
                     core_1.Component({
                         selector: 'viz-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n    <div class=\"container\">\n      <div class=\"row\">\n        <nav>\n          <a [routerLink]=\"['Login']\">Login</a>\n          <a [routerLink]=\"['Signup']\">Signup</a>\n        </nav>\n      </div>\n    </div>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n    <div class=\"container\">\n      <div class=\"row\">\n        <nav>\n          \n          <a [routerLink]=\"['Login']\">Login</a>\n          <a [routerLink]=\"['Signup']\">Signup</a>\n        </nav>\n      </div>\n    </div>\n    <router-outlet></router-outlet>\n  ",
                         styleUrls: ['app/home/template/app.component.css'],
                         providers: [router_1.ROUTER_PROVIDERS]
                     }),
                     router_1.RouteConfig([
+                        {
+                            path: '/',
+                            name: 'Home',
+                            component: login_component_1.LoginComponent
+                        },
                         {
                             path: '/login',
                             name: 'Login',

@@ -19,5 +19,10 @@
         </div>
       </div>
     </form>
+
+    <div class="status">
+      <p *ngIf="result === 'added'">Registration successful</p>
+      <p *ngIf="result === 'exists'">User exists</p>
+    </div>
   </div>
 </div>

@@ -20,15 +20,17 @@ app.get('/new', function(req, res) {
     if (err) throw err;
     
     var collection = db.collection('users');
-
+    console.log(username, password);
     collection.find({
       username: username
     }).toArray(function (err, data) {
       if (err) throw err;
 
       if (data.length != 0) {
-        console.log("EE");
-        res.end('Exists');
+        res.json({
+          exists: true,
+          added: false
+        });
       } else {
         collection.insert({
           username: username,
@@ -36,7 +38,10 @@ app.get('/new', function(req, res) {
         }, function (err) {
           if (err) throw err;
           db.close();
-          res.end('Added');
+          res.json({
+            exists: false,
+            added: true
+          });
         });
       }
     });
@@ -44,7 +49,7 @@ app.get('/new', function(req, res) {
   });
 });
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendFile(process.cwd() + '/index.html');
 });
 
