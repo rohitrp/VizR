@@ -23,7 +23,8 @@ System.register(['angular2/platform/browser', './home/app.component', 'angular2/
         execute: function() {
             browser_1.bootstrap(app_component_1.AppComponent, [
                 core_1.provide(router_1.LocationStrategy, { useClass: router_1.PathLocationStrategy }),
-                http_1.HTTP_PROVIDERS
+                http_1.HTTP_PROVIDERS,
+                router_1.ROUTER_PROVIDERS
             ]);
         }
     }

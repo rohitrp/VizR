@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', "../auth/auth.component", "../account/user/user.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, auth_component_1;
+    var core_1, router_1, auth_component_1, user_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
             },
             function (auth_component_1_1) {
                 auth_component_1 = auth_component_1_1;
+            },
+            function (user_component_1_1) {
+                user_component_1 = user_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -31,8 +34,7 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
                     core_1.Component({
                         selector: 'viz-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "\n    <router-outlet></router-outlet>\n  ",
-                        providers: [router_1.ROUTER_PROVIDERS]
+                        template: "\n    <router-outlet></router-outlet>\n  "
                     }),
                     router_1.RouteConfig([
                         {
@@ -40,6 +42,11 @@ System.register(['angular2/core', 'angular2/router', "../auth/auth.component"], 
                             name: 'Auth',
                             component: auth_component_1.AuthComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/user/:username',
+                            name: 'User',
+                            component: user_component_1.UserComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])

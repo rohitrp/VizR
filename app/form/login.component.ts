@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
+import {Router} from 'angular2/router';
 
 @Component({
   selector: 'login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   successMsg: string = 'Logging in...';
   failureMsg: string = 'Username or Password is incorrect';
   
-  constructor(private http: Http) { }
+  constructor(private http: Http, private _router: Router) { }
     
   onSubmit(username, password) {
     
@@ -28,7 +29,11 @@ export class LoginComponent {
           this.result = '';
           console.error(err);
         },
-        () => console.log('done')
+        () => {
+          if (this.result === 'success') {
+            this._router.parent.navigate(['User', {username: username}]);
+          }
+        }
       );
   }
 }
