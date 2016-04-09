@@ -40,11 +40,6 @@ System.register(['angular2/core', './../auth/login.component', './../auth/signup
                     }),
                     router_1.RouteConfig([
                         {
-                            path: '/',
-                            name: 'Home',
-                            component: login_component_1.LoginComponent
-                        },
-                        {
                             path: '/login',
                             name: 'Login',
                             component: login_component_1.LoginComponent,

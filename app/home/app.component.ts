@@ -24,11 +24,6 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 
 @RouteConfig([
   {
-    path: '/',
-    name: 'Home',
-    component: LoginComponent
-  },
-  {
     path: '/login',
     name: 'Login',
     component: LoginComponent,

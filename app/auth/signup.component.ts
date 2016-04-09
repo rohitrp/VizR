@@ -1,6 +1,5 @@
 import {Component} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
-import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'signup',
@@ -12,6 +11,9 @@ export class SignupComponent {
   formType: string = "Sign up";
   result: string = '';
 
+  successMsg: string = 'Registration successful';
+  failureMsg: string = 'User exists';
+
   constructor(private http: Http) { }
   
   onSubmit(username, password) {
@@ -20,7 +22,7 @@ export class SignupComponent {
       .map((res:Response) => res.json())
       .subscribe(
         data => {
-          this.result = data.added ? 'added' : 'exists';
+          this.result = data.added ? 'success' : 'failure';
         },
         err => {
           this.result = '';

@@ -27,8 +27,9 @@ app.get('/new', function(req, res) {
       if (err) throw err;
 
       if (data.length != 0) {
+        db.close();
+
         res.json({
-          exists: true,
           added: false
         });
       } else {
@@ -38,14 +39,45 @@ app.get('/new', function(req, res) {
         }, function (err) {
           if (err) throw err;
           db.close();
+
           res.json({
-            exists: false,
             added: true
           });
         });
       }
     });
 
+  });
+});
+
+app.get('/existing', function (req, res) {
+  var params = url.parse(req.url, true);
+  var username = params.query.username;
+  var password = params.query.password;
+
+  mongo.connect(mongoUrl, function (err, db) {
+    if (err) throw err;
+
+    var collection = db.collection('users');
+
+    collection.find({
+      username: username
+    }).toArray(function (err, data) {
+      if (err) throw err;
+      db.close();
+  
+      if (data.length === 0) {
+        res.json({
+          allow: false
+        });
+      } else {
+        var user = data[0];
+
+        user.password === password 
+          ? res.json({ allow: true }) 
+          : res.json({ allow: false });
+      }
+    });
   });
 });
 

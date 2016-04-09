@@ -26,13 +26,15 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                     this.http = http;
                     this.formType = "Sign up";
                     this.result = '';
+                    this.successMsg = 'Registration successful';
+                    this.failureMsg = 'User exists';
                 }
                 SignupComponent.prototype.onSubmit = function (username, password) {
                     var _this = this;
                     this.http.get('/new?username=' + username + '&password=' + password)
                         .map(function (res) { return res.json(); })
                         .subscribe(function (data) {
-                        _this.result = data.added ? 'added' : 'exists';
+                        _this.result = data.added ? 'success' : 'failure';
                     }, function (err) {
                         _this.result = '';
                         console.error(err);

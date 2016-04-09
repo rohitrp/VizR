@@ -21,8 +21,8 @@
     </form>
 
     <div class="status">
-      <p *ngIf="result === 'added'">Registration successful</p>
-      <p *ngIf="result === 'exists'">User exists</p>
+      <p *ngIf="result === 'success'">{{ successMsg }}</p>
+      <p *ngIf="result === 'failure'">{{ failureMsg }}</p>
     </div>
   </div>
 </div>
