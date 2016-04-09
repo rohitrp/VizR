@@ -11,33 +11,32 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var LoginComponent;
+    var SignupComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            LoginComponent = (function () {
-                function LoginComponent() {
+            SignupComponent = (function () {
+                function SignupComponent() {
+                    this.formType = "Sign up";
                 }
-                LoginComponent.prototype.onSubmit = function (username, password) {
+                SignupComponent.prototype.onSubmit = function (username, password) {
                     console.log(username, password);
                 };
-                LoginComponent = __decorate([
+                SignupComponent = __decorate([
                     core_1.Component({
-                        selector: 'login',
-                        templateUrl: 'app/login.html',
-                        styles: [
-                            "\n    .container {\n        position: absolute;\n        top: 40%;\n        left: 10%;\n    }\n    "
-                        ]
+                        selector: 'signup',
+                        templateUrl: 'app/auth/template/form.html',
+                        styleUrls: ['app/auth/template/style.css']
                     }), 
                     __metadata('design:paramtypes', [])
-                ], LoginComponent);
-                return LoginComponent;
+                ], SignupComponent);
+                return SignupComponent;
             }());
-            exports_1("LoginComponent", LoginComponent);
+            exports_1("SignupComponent", SignupComponent);
         }
     }
 });
-//# sourceMappingURL=login.component.js.map
+//# sourceMappingURL=signup.component.js.map

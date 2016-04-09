@@ -14,6 +14,7 @@
     "angular2": "2.0.0-beta.14",
     "es6-shim": "^0.35.0",
     "express": "^4.13.4",
+    "mongodb": "^2.1.16",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "systemjs": "0.19.25",
