@@ -1,0 +1,17 @@
+<div class="container">
+  <h3>Posts by {{ user.username }}</h3>
+  <form (submit)="addReport(postName.value, postName)">
+    <input type="text" #postName>
+    <button type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+  <ul>
+    <li *ngFor="#post of user.posts">
+      <a [routerLink]="['PostId', {id: post.id }]">
+        {{ post.name }}
+      </a>
+    </li>
+  </ul>
+
+</div>

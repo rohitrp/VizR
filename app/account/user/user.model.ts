@@ -1,4 +1,5 @@
 export class User {
   username: string;
-  posts: string[];
+  posts: any[];
+  totalPosts: number;
 }

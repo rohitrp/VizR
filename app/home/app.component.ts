@@ -19,7 +19,7 @@ import {UserComponent} from "../account/user/user.component";
     useAsDefault: true
   },
   {
-    path: '/user/:username',
+    path: '/user/:username/...',
     name:'User',
     component: UserComponent
   }

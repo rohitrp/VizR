@@ -1,0 +1,372 @@
+[
+  {
+    "Pulsar": "1853+1303",
+    "TOAs": 1369,
+    "Raw Profiles": 520,
+    "Period": 0.0040918,
+    "Period Derivative": 8.7164e-21,
+    "DM": 30.57,
+    "RMS": 1.23,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1012+5307",
+    "TOAs": 11597,
+    "Raw Profiles": 726,
+    "Period": 0.00525575,
+    "Period Derivative": 1.71268e-20,
+    "DM": 9.02,
+    "RMS": 2.7,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "0931-1902",
+    "TOAs": 712,
+    "Raw Profiles": 125,
+    "Period": 0.00463803,
+    "Period Derivative": 4.0544e-21,
+    "DM": 41.49,
+    "RMS": 3.67,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "0613-0200",
+    "TOAs": 7422,
+    "Raw Profiles": 688,
+    "Period": 0.00306184,
+    "Period Derivative": 9.5904e-21,
+    "DM": 38.78,
+    "RMS": 1.35,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1600-3053",
+    "TOAs": 7804,
+    "Raw Profiles": 603,
+    "Period": 0.00359793,
+    "Period Derivative": 9.5005e-21,
+    "DM": 52.33,
+    "RMS": 1.01,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1747-4036",
+    "TOAs": 2771,
+    "Raw Profiles": 210,
+    "Period": 0.00164561,
+    "Period Derivative": 1.31565e-20,
+    "DM": 152.96,
+    "RMS": 4.6,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "2010-1323",
+    "TOAs": 7667,
+    "Raw Profiles": 403,
+    "Period": 0.00522327,
+    "Period Derivative": 4.8245e-21,
+    "DM": 22.16,
+    "RMS": 2.58,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "2043+1711",
+    "TOAs": 1382,
+    "Raw Profiles": 468,
+    "Period": 0.00237988,
+    "Period Derivative": 5.2427e-21,
+    "DM": 20.71,
+    "RMS": 0.6,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "2017+0603",
+    "TOAs": 1565,
+    "Raw Profiles": 435,
+    "Period": 0.00289622,
+    "Period Derivative": 8.0006e-21,
+    "DM": 23.92,
+    "RMS": 0.72,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1855+09",
+    "TOAs": 4005,
+    "Raw Profiles": 696,
+    "Period": 0.0053621,
+    "Period Derivative": 1.78411e-20,
+    "DM": 13.3,
+    "RMS": 5.52,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1713+0747",
+    "TOAs": 15257,
+    "Raw Profiles": 1609,
+    "Period": 0.00457014,
+    "Period Derivative": 8.5297e-21,
+    "DM": 15.99,
+    "RMS": 0.19,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1923+2515",
+    "TOAs": 920,
+    "Raw Profiles": 319,
+    "Period": 0.00378816,
+    "Period Derivative": 9.5525e-21,
+    "DM": 18.86,
+    "RMS": 4.4,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "0030+0451",
+    "TOAs": 2455,
+    "Raw Profiles": 546,
+    "Period": 0.00486545,
+    "Period Derivative": 1.01741e-20,
+    "DM": 4.33,
+    "RMS": 4.6,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1744-1134",
+    "TOAs": 8665,
+    "Raw Profiles": 670,
+    "Period": 0.00407455,
+    "Period Derivative": 8.9339e-21,
+    "DM": 3.14,
+    "RMS": 0.72,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1909-3744",
+    "TOAs": 10259,
+    "Raw Profiles": 857,
+    "Period": 0.00294711,
+    "Period Derivative": 1.40254e-20,
+    "DM": 10.39,
+    "RMS": 0.2,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "2302+4442",
+    "TOAs": 3037,
+    "Raw Profiles": 218,
+    "Period": 0.00519232,
+    "Period Derivative": 1.3771e-20,
+    "DM": 13.73,
+    "RMS": 5.79,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1640+2224",
+    "TOAs": 2503,
+    "Raw Profiles": 647,
+    "Period": 0.00316332,
+    "Period Derivative": 2.8175e-21,
+    "DM": 18.46,
+    "RMS": 0.65,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "0023+0923",
+    "TOAs": 4373,
+    "Raw Profiles": 335,
+    "Period": 0.0030502,
+    "Period Derivative": 1.14211e-20,
+    "DM": 14.32,
+    "RMS": 1.34,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1832-0836",
+    "TOAs": 1131,
+    "Raw Profiles": 121,
+    "Period": 0.00271911,
+    "Period Derivative": 8.7345e-21,
+    "DM": 28.19,
+    "RMS": 1.87,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1643-1224",
+    "TOAs": 6921,
+    "Raw Profiles": 755,
+    "Period": 0.00462164,
+    "Period Derivative": 1.84651e-20,
+    "DM": 62.42,
+    "RMS": 3.05,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1738+0333",
+    "TOAs": 2623,
+    "Raw Profiles": 478,
+    "Period": 0.0058501,
+    "Period Derivative": 2.41148e-20,
+    "DM": 33.77,
+    "RMS": 1.37,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1024-0719",
+    "TOAs": 4830,
+    "Raw Profiles": 389,
+    "Period": 0.0051622,
+    "Period Derivative": 1.85516e-20,
+    "DM": 6.49,
+    "RMS": 1.75,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "0645+5158",
+    "TOAs": 2891,
+    "Raw Profiles": 232,
+    "Period": 0.0088535,
+    "Period Derivative": 4.92e-21,
+    "DM": 18.25,
+    "RMS": 0.57,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "2145-0750",
+    "TOAs": 7029,
+    "Raw Profiles": 570,
+    "Period": 0.01605242,
+    "Period Derivative": 2.97898e-20,
+    "DM": 9.03,
+    "RMS": 1.58,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1455-3330",
+    "TOAs": 4983,
+    "Raw Profiles": 726,
+    "Period": 0.0079872,
+    "Period Derivative": 2.43033e-20,
+    "DM": 13.57,
+    "RMS": 4.36,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1944+0907",
+    "TOAs": 1696,
+    "Raw Profiles": 505,
+    "Period": 0.0051852,
+    "Period Derivative": 1.73386e-20,
+    "DM": 24.34,
+    "RMS": 3.2,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1949+3106",
+    "TOAs": 1409,
+    "Raw Profiles": 362,
+    "Period": 0.01313818,
+    "Period Derivative": 9.95761e-20,
+    "DM": 164.13,
+    "RMS": 4.6,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1741+1351",
+    "TOAs": 1588,
+    "Raw Profiles": 519,
+    "Period": 0.00374715,
+    "Period Derivative": 3.02169e-20,
+    "DM": 24.2,
+    "RMS": 0.75,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1937+21",
+    "TOAs": 0,
+    "Raw Profiles": 1312,
+    "Period": 0.00155781,
+    "Period Derivative": 1.051006e-19,
+    "DM": 71.02,
+    "RMS": 0.91,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1953+29",
+    "TOAs": 1302,
+    "Raw Profiles": 384,
+    "Period": 0.00613317,
+    "Period Derivative": 2.96849e-20,
+    "DM": 104.5,
+    "RMS": 30.96,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "2214+3000",
+    "TOAs": 2514,
+    "Raw Profiles": 446,
+    "Period": 0.00311923,
+    "Period Derivative": 1.47013e-20,
+    "DM": 22.56,
+    "RMS": 1.66,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1918-0642",
+    "TOAs": 9664,
+    "Raw Profiles": 693,
+    "Period": 0.00764587,
+    "Period Derivative": 2.56913e-20,
+    "DM": 26.6,
+    "RMS": 1.82,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1614-2230",
+    "TOAs": 7323,
+    "Raw Profiles": 433,
+    "Period": 0.00315081,
+    "Period Derivative": 9.6242e-21,
+    "DM": 34.48,
+    "RMS": 1.37,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "1903+0327",
+    "TOAs": 1802,
+    "Raw Profiles": 479,
+    "Period": 0.00214991,
+    "Period Derivative": 1.88105e-20,
+    "DM": 297.56,
+    "RMS": 3.13,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "0340+4130",
+    "TOAs": 3003,
+    "Raw Profiles": 215,
+    "Period": 0.00329934,
+    "Period Derivative": 7.0774e-21,
+    "DM": 49.58,
+    "RMS": 5.14,
+    "Binary": "-"
+  },
+  {
+    "Pulsar": "1910+1256",
+    "TOAs": 2631,
+    "Raw Profiles": 554,
+    "Period": 0.00498358,
+    "Period Derivative": 9.6777e-21,
+    "DM": 38.06,
+    "RMS": 2.07,
+    "Binary": "Y"
+  },
+  {
+    "Pulsar": "2317+1439",
+    "TOAs": 2620,
+    "Raw Profiles": 743,
+    "Period": 0.00344525,
+    "Period Derivative": 2.4297e-21,
+    "DM": 21.9,
+    "RMS": 0.85,
+    "Binary": "Y"
+  }
+]
