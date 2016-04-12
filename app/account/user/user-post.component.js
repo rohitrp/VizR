@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./user.service", "./text.component"], function(exports_1, context_1) {
+System.register(['angular2/core', "./user.service", "./text.component", "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "./user.service", "./text.component"], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, text_component_1;
+    var core_1, user_service_1, text_component_1, router_1;
     var UserPostComponent;
     return {
         setters:[
@@ -22,17 +22,22 @@ System.register(['angular2/core', "./user.service", "./text.component"], functio
             },
             function (text_component_1_1) {
                 text_component_1 = text_component_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             UserPostComponent = (function () {
-                function UserPostComponent(_posts) {
-                    this._posts = _posts;
+                function UserPostComponent(_userService, _routeParams) {
+                    this._userService = _userService;
+                    this._routeParams = _routeParams;
                 }
                 UserPostComponent.prototype.ngOnInit = function () {
-                    this.posts = this._posts.getUserData();
+                    this.id = +this._routeParams.get('id');
+                    this.postEntries = this._userService.getPostEntries(this.id);
                 };
-                UserPostComponent.prototype.addPost = function (text, textArea) {
-                    this._posts.addPost(text);
+                UserPostComponent.prototype.addEntry = function (text, textArea) {
+                    this._userService.addEntry(this.id, text);
                     textArea.value = '';
                 };
                 UserPostComponent = __decorate([
@@ -41,7 +46,7 @@ System.register(['angular2/core', "./user.service", "./text.component"], functio
                         templateUrl: 'app/account/user/template/user-post.component.html',
                         directives: [text_component_1.TextComponent]
                     }), 
-                    __metadata('design:paramtypes', [user_service_1.UserService])
+                    __metadata('design:paramtypes', [user_service_1.UserService, router_1.RouteParams])
                 ], UserPostComponent);
                 return UserPostComponent;
             }());

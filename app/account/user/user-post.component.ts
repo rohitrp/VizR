@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {UserService} from "./user.service";
 import {TextComponent} from "./text.component";
+import {RouteParams} from "angular2/router";
 
 @Component({
   selector: 'user-post',
@@ -9,16 +10,19 @@ import {TextComponent} from "./text.component";
 })
 
 export class UserPostComponent implements OnInit {
-  posts: String[];
+  id: number;
+  postEntries: String[];
 
-  constructor(private _posts: UserService) { }
+  constructor(private _userService: UserService,
+              private _routeParams: RouteParams) { }
 
   ngOnInit() {
-    this.posts = this._posts.getUserData();
+    this.id = +this._routeParams.get('id');
+    this.postEntries = this._userService.getPostEntries(this.id);
   }
   
-  addPost(text: string, textArea: HTMLTextAreaElement) {
-    this._posts.addPost(text);
+  addEntry(text: string, textArea: HTMLTextAreaElement) {
+    this._userService.addEntry(this.id, text);
 
     textArea.value = '';
   }

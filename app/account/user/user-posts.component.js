@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "./user.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/router"], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
+    var core_1, router_1, user_service_1;
     var UserPostsComponent;
     return {
         setters:[
@@ -19,25 +19,27 @@ System.register(["angular2/core", "angular2/router"], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
             }],
         execute: function() {
             UserPostsComponent = (function () {
-                function UserPostsComponent(_injector) {
+                function UserPostsComponent(_userService, _injector) {
+                    this._userService = _userService;
                     this._injector = _injector;
                 }
                 UserPostsComponent.prototype.ngOnInit = function () {
-                    this.user = {
-                        username: this._injector.parent.parent.get(router_1.RouteParams).get('username'),
-                        posts: [],
-                        totalPosts: 0
-                    };
-                    console.log(this.user);
+                    var _this = this;
+                    this.username = this._injector.parent.parent.get(router_1.RouteParams).get('username');
+                    this._userService.getUserData(this.username)
+                        .subscribe(function (data) {
+                        _this._userService.initializePosts(data);
+                        _this.posts = _this._userService.getPosts();
+                    }, function (err) { return console.error(err); }, function () { return console.log('Done'); });
                 };
-                UserPostsComponent.prototype.addReport = function (postName, input) {
-                    this.user.posts.push({
-                        name: postName,
-                        id: this.user.totalPosts++
-                    });
+                UserPostsComponent.prototype.addPost = function (postName, input) {
+                    this._userService.addPost(postName);
                     input.value = null;
                 };
                 UserPostsComponent = __decorate([
@@ -46,7 +48,7 @@ System.register(["angular2/core", "angular2/router"], function(exports_1, contex
                         templateUrl: 'app/account/user/template/user-posts.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [core_1.Injector])
+                    __metadata('design:paramtypes', [user_service_1.UserService, core_1.Injector])
                 ], UserPostsComponent);
                 return UserPostsComponent;
             }());

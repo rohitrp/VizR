@@ -1,6 +1,6 @@
 import {Component, OnInit, Injector} from "angular2/core";
 import {RouteParams, ROUTER_DIRECTIVES} from "angular2/router";
-import {User} from "./user.model";
+import {UserService} from "./user.service";
 
 @Component({
   selector: 'user-posts',
@@ -9,25 +9,29 @@ import {User} from "./user.model";
 })
 
 export class UserPostsComponent implements OnInit {
-  user: User;
+  username: string;
+  posts: any[];
 
-  constructor(private _injector: Injector) { }
-
-  ngOnInit() {
-    this.user = {
-      username: this._injector.parent.parent.get(RouteParams).get('username'),
-      posts: [],
-      totalPosts: 0
-    };
-
-    console.log(this.user);
+  constructor(private _userService: UserService,
+              private _injector:Injector) {
   }
 
-  addReport(postName: string, input: HTMLInputElement) {
-    this.user.posts.push({
-      name: postName,
-      id: this.user.totalPosts++
-    });
+  ngOnInit() {
+    this.username = this._injector.parent.parent.get(RouteParams).get('username');
+    this._userService.getUserData(this.username)
+      .subscribe(
+        data => {
+          this._userService.initializePosts(data);
+          this.posts = this._userService.getPosts();
+        },
+        err => console.error(err),
+        () => console.log('Done')
+      );
+  }
+
+  addPost(postName:string, input:HTMLInputElement) {
+
+    this._userService.addPost(postName);
 
     input.value = null;
   }

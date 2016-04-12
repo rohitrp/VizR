@@ -1,4 +1,4 @@
-System.register(["angular2/core", './mock-user-posts'], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/http"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,67 @@ System.register(["angular2/core", './mock-user-posts'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_user_posts_1;
-    var UserService;
+    var core_1, http_1;
+    var POSTS, UserService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (mock_user_posts_1_1) {
-                mock_user_posts_1 = mock_user_posts_1_1;
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             UserService = (function () {
-                function UserService() {
+                function UserService(_http) {
+                    this._http = _http;
                 }
-                UserService.prototype.getUserData = function () {
-                    return mock_user_posts_1.POSTS;
+                UserService.prototype.getUserData = function (username) {
+                    this.username = username;
+                    return this._http.get('/api/user/data?username=' + username)
+                        .map(function (res) { return res.json(); });
                 };
-                UserService.prototype.addPost = function (text) {
-                    mock_user_posts_1.POSTS.push(text);
+                UserService.prototype.initializePosts = function (data) {
+                    exports_1("POSTS", POSTS = data);
+                };
+                UserService.prototype.addEntry = function (id, text) {
+                    POSTS[id].post.push(text);
+                    var body = 'type=entry&text=' + text +
+                        '&id=' + id +
+                        '&username=' + this.username;
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    this._http.post('/api/user/post', body, {
+                        headers: headers
+                    })
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return console.log(data); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
+                };
+                UserService.prototype.getPosts = function () {
+                    return POSTS;
+                };
+                UserService.prototype.addPost = function (title) {
+                    POSTS.push({
+                        _id: POSTS.length,
+                        title: title
+                    });
+                    var body = "type=title&title=" + title +
+                        '&id=' + (POSTS.length - 1) +
+                        '&username=' + this.username;
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    this._http.post('/api/user/post', body, {
+                        headers: headers
+                    })
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return console.log(data); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
+                };
+                UserService.prototype.getPostEntries = function (id) {
+                    return POSTS[id].post;
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], UserService);
                 return UserService;
             }());

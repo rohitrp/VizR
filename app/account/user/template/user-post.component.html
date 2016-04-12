@@ -1,9 +1,9 @@
 <div class="container">
-  <form (submit)="addPost(textArea.value, textArea)">
+  <form (submit)="addEntry(textArea.value, textArea)">
     <textarea class="form-control" rows="4" #textArea></textarea>
     <button type="submit" class="btn btn-primary">Add</button>
   </form>
-  <div class="row" *ngFor="#post of posts">
+  <div class="row" *ngFor="#post of postEntries">
     <text [text]="post"></text>
   </div>
 </div>
