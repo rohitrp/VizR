@@ -7,6 +7,7 @@ var port = process.env.PORT || 5000;
 var mongo = require('mongodb').MongoClient;
 var mongoUrl = process.env.MONGO || "mongodb://localhost:27017/vizr";
 var url = require('url');
+var fs = require('fs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -99,19 +100,38 @@ app.post('/api/user/post', function (req, res) {
   mongo.connect(mongoUrl, function(err, db) {
     var postsCollection = db.collection('posts');
     var body = req.body;
-  
-    console.log(body);
 
+    console.log(body);
+    
     try {
       if (body.type === 'title') {
         postsCollection.update(
           {username: body.username},
           {$push: {posts: {_id: +body.id, title: body.title, post: []}}}
         );
+      } else if (body.type === 'plot') {
+        postsCollection.update(
+          { username: body.username, posts: {$elemMatch: {_id: +body.id}}},
+          {$push: {
+            'posts.$.post': {
+              type: body.type,
+              xVal: body.xVal,
+              yVal: body.yVal,
+              xScaleType: body.xScaleType,
+              yScaleType: body.yScaleType,
+              index: +body.index
+            }}}
+        )
       } else {
         postsCollection.update(
           {username: body.username, posts: {$elemMatch: {_id: +body.id}}},
-          {$push: {"posts.$.post": body.text}}
+          {$push: {
+            "posts.$.post": {
+              type: body.type,
+              text: body.text,
+              index: +body.index
+            }
+          }}
         );
       }
     } catch(err) {
@@ -137,11 +157,14 @@ app.get('/api/user/data', function (req, res) {
       { username: params.query.username },
       { _id: 0, posts: 1}
     ).toArray(function (err, data) {
-      console.log(JSON.stringify(data[0].posts));
       res.json(data[0].posts);
       db.close();
     })
   })
+});
+
+app.get('/data/pulsar', function (req, res) {
+  res.json(JSON.parse(fs.readFileSync(__dirname + '/app/data/pulsar_data.json', 'utf8')));
 });
 
 app.get('*', function (req, res) {

@@ -4,7 +4,7 @@ import {RouteParams} from "angular2/router";
 @Component({
   selector: 'text',
   template: `
-    <div>
+    <div id="text-{{entryId}}">
       <p>
         {{ text }}
       </p>
@@ -14,6 +14,7 @@ import {RouteParams} from "angular2/router";
 
 export class TextComponent implements OnInit {
   @Input() text: string;
+  @Input() entryId: number;
   id: number;
 
   constructor(private _routeParams: RouteParams) { }

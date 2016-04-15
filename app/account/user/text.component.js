@@ -32,10 +32,14 @@ System.register(["angular2/core", "angular2/router"], function(exports_1, contex
                     core_1.Input(), 
                     __metadata('design:type', String)
                 ], TextComponent.prototype, "text", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], TextComponent.prototype, "entryId", void 0);
                 TextComponent = __decorate([
                     core_1.Component({
                         selector: 'text',
-                        template: "\n    <div>\n      <p>\n        {{ text }}\n      </p>\n    </div>\n  "
+                        template: "\n    <div id=\"text-{{entryId}}\">\n      <p>\n        {{ text }}\n      </p>\n    </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [router_1.RouteParams])
                 ], TextComponent);

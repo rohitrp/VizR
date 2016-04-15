@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./user.service", "./text.component", "angular2/router"], function(exports_1, context_1) {
+System.register(['angular2/core', "./user.service", "./text.component", "angular2/router", "./../chart/chart.component"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, text_component_1, router_1;
+    var core_1, user_service_1, text_component_1, router_1, chart_component_1;
     var UserPostComponent;
     return {
         setters:[
@@ -25,26 +25,41 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (chart_component_1_1) {
+                chart_component_1 = chart_component_1_1;
             }],
         execute: function() {
             UserPostComponent = (function () {
                 function UserPostComponent(_userService, _routeParams) {
                     this._userService = _userService;
                     this._routeParams = _routeParams;
+                    this.currentTab = 'text';
                 }
                 UserPostComponent.prototype.ngOnInit = function () {
                     this.id = +this._routeParams.get('id');
                     this.postEntries = this._userService.getPostEntries(this.id);
                 };
                 UserPostComponent.prototype.addEntry = function (text, textArea) {
-                    this._userService.addEntry(this.id, text);
+                    var data = {
+                        id: this.id,
+                        type: 'text',
+                        text: text
+                    };
+                    this._userService.addEntry(data);
                     textArea.value = '';
+                };
+                UserPostComponent.prototype.tabToggle = function (tab) {
+                    this.currentTab = tab;
                 };
                 UserPostComponent = __decorate([
                     core_1.Component({
                         selector: 'user-post',
                         templateUrl: 'app/account/user/template/user-post.component.html',
-                        directives: [text_component_1.TextComponent]
+                        styles: [
+                            "\n    a {\n      cursor: pointer;\n    }\n    "
+                        ],
+                        directives: [text_component_1.TextComponent, chart_component_1.ChartComponent]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, router_1.RouteParams])
                 ], UserPostComponent);

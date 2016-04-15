@@ -1,0 +1,33 @@
+<form class="scatter-options form-inline"
+      (change)="updatePlot(xOptions.value, yOptions.value,
+                          xScale.value, yScale.value)"
+      (submit)="addPlotEntry(xOptions.value, yOptions.value,
+                          xScale.value, yScale.value)">
+  <label for="xOptions">x-axis: </label>
+  <select id="xOptions" #xOptions class="form-control">
+    <option value="{{option}}"
+            *ngFor="#option of options"
+            [selected]="option === 'Period'">{{option}}</option>
+  </select>
+  <label for="yOptions">y-axis: </label>
+  <select id="yOptions" #yOptions class="form-control">
+    <option value="{{option}}"
+            *ngFor="#option of options"
+            [selected]="option === 'Period Derivative'">{{option}}</option>
+  </select>
+
+  <label for="xScale">x-scale</label>
+  <select id="xScale" #xScale>
+    <option value="linear" selected>Linear</option>
+    <option value="log">Log</option>
+  </select>
+  <label for="yScale">y-scale</label>
+  <select id="yScale" #yScale>
+    <option value="linear">Linear</option>
+    <option value="log" selected>Log</option>
+  </select>
+  <button type="submit" class="btn btn-primary">Add</button>
+
+</form>
+
+<div class="plot" id="plot-{{entryId}}"></div>

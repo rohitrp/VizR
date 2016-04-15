@@ -1,0 +1,27 @@
+.bubble {
+  display: inline-block;
+  fill-opacity: 0.5;
+  fill: rgb(31, 119, 180);
+}
+
+.plot {
+  text-align: center;
+}
+
+svg {
+  display: block;
+}
+
+.axis text {
+  font-size: 12px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+rect {
+  fill: #fff;
+}

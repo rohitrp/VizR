@@ -1,9 +1,41 @@
 <div class="container">
-  <form (submit)="addEntry(textArea.value, textArea)">
+  <ul class="nav nav-pills">
+    <li role="presentation" [class.active]="currentTab === 'text'">
+      <a (click)="tabToggle('text')">Text</a>
+    </li>
+    <li role="presentation" [class.active]="currentTab === 'plot'">
+      <a (click)="tabToggle('plot')">Plot</a>
+    </li>
+  </ul>
+  <form *ngIf="currentTab === 'text'"
+        (submit)="addEntry(textArea.value, textArea)">
     <textarea class="form-control" rows="4" #textArea></textarea>
     <button type="submit" class="btn btn-primary">Add</button>
   </form>
+
+  <form *ngIf="currentTab === 'plot'"
+        (submit)="addEntry(textArea.value, textArea)">
+
+    <chart [xVal]="'Period'"
+           [yVal]="'Period Derivative'"
+           [xScaleType]="'linear'"
+           [yScaleType]="'log'"
+           [postId]="id"
+           [entryId]="0"></chart>
+  </form>
+
   <div class="row" *ngFor="#post of postEntries">
-    <text [text]="post"></text>
+    <text *ngIf="post.type === 'text'"
+          [text]="post.text"
+          [entryId]="post.index"></text>
+
+    <chart *ngIf="post.type === 'plot'"
+           [xVal]="post.xVal"
+           [yVal]="post.yVal"
+           [xScaleType]="post.xScaleType"
+           [yScaleType]="post.yScaleType"
+           [postId]="id"
+           [entryId]="post.index"></chart>
   </div>
 </div>
+

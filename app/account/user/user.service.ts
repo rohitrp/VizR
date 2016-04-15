@@ -21,12 +21,27 @@ export class UserService {
     POSTS = data;
   }
   
-  addEntry(id: number, text: string) {
-    POSTS[id].post.push(text);
+  addEntry(data: any) {
+    data.index = POSTS[data.id].post.length+1;
+
+    POSTS[data.id].post.push(data);
+
+    var body = '';
     
-    var body = 'type=entry&text=' + text +
-        '&id=' + id +
-        '&username=' + this.username;
+    if (data.type === 'text') {
+      body = 'type=text&text=' + data.text +
+        '&id=' + data.id +
+        '&username=' + this.username +
+        '&index=' + data.index;
+    } else {
+      body = 'type=plot&xVal=' + data.xVal +
+        '&yVal=' + data.yVal +
+        '&xScaleType=' + data.xScaleType +
+        '&yScaleType=' + data.yScaleType +
+        '&id=' + data.id +
+        '&username=' + this.username +
+        '&index=' + data.index;
+    }
     
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -36,7 +51,7 @@ export class UserService {
       })
       .map((res: Response) => res.json())
       .subscribe(
-        data => console.log(data),
+        data => console.log('Entry added to database'),
         err => console.error(err),
         () => console.log('done')
       );
@@ -49,7 +64,8 @@ export class UserService {
   addPost(title: string) {
     POSTS.push({
       _id: POSTS.length,
-      title: title
+      title: title,
+      post: []
     });
 
     var body = "type=title&title=" + title +
@@ -64,7 +80,7 @@ export class UserService {
       })
       .map((res: Response) => res.json())
       .subscribe(
-        data => console.log(data),
+        data => console.log('Post added to database'),
         err => console.error(err),
         () => console.log('done')
       );
@@ -72,6 +88,11 @@ export class UserService {
   
   getPostEntries(id: number) {
     return POSTS[id].post;
+  }
+  
+  getPulsarData() {
+    return this._http.get('/data/pulsar')
+      .map((res: Response) => res.json());
   }
 
 }

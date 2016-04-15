@@ -33,18 +33,32 @@ System.register(["angular2/core", "angular2/http"], function(exports_1, context_
                 UserService.prototype.initializePosts = function (data) {
                     exports_1("POSTS", POSTS = data);
                 };
-                UserService.prototype.addEntry = function (id, text) {
-                    POSTS[id].post.push(text);
-                    var body = 'type=entry&text=' + text +
-                        '&id=' + id +
-                        '&username=' + this.username;
+                UserService.prototype.addEntry = function (data) {
+                    data.index = POSTS[data.id].post.length + 1;
+                    POSTS[data.id].post.push(data);
+                    var body = '';
+                    if (data.type === 'text') {
+                        body = 'type=text&text=' + data.text +
+                            '&id=' + data.id +
+                            '&username=' + this.username +
+                            '&index=' + data.index;
+                    }
+                    else {
+                        body = 'type=plot&xVal=' + data.xVal +
+                            '&yVal=' + data.yVal +
+                            '&xScaleType=' + data.xScaleType +
+                            '&yScaleType=' + data.yScaleType +
+                            '&id=' + data.id +
+                            '&username=' + this.username +
+                            '&index=' + data.index;
+                    }
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/x-www-form-urlencoded');
                     this._http.post('/api/user/post', body, {
                         headers: headers
                     })
                         .map(function (res) { return res.json(); })
-                        .subscribe(function (data) { return console.log(data); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
+                        .subscribe(function (data) { return console.log('Entry added to database'); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
                 };
                 UserService.prototype.getPosts = function () {
                     return POSTS;
@@ -52,7 +66,8 @@ System.register(["angular2/core", "angular2/http"], function(exports_1, context_
                 UserService.prototype.addPost = function (title) {
                     POSTS.push({
                         _id: POSTS.length,
-                        title: title
+                        title: title,
+                        post: []
                     });
                     var body = "type=title&title=" + title +
                         '&id=' + (POSTS.length - 1) +
@@ -63,10 +78,14 @@ System.register(["angular2/core", "angular2/http"], function(exports_1, context_
                         headers: headers
                     })
                         .map(function (res) { return res.json(); })
-                        .subscribe(function (data) { return console.log(data); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
+                        .subscribe(function (data) { return console.log('Post added to database'); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
                 };
                 UserService.prototype.getPostEntries = function (id) {
                     return POSTS[id].post;
+                };
+                UserService.prototype.getPulsarData = function () {
+                    return this._http.get('/data/pulsar')
+                        .map(function (res) { return res.json(); });
                 };
                 UserService = __decorate([
                     core_1.Injectable(), 
