@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Http, Response} from 'angular2/http';
+import {Http, Response, Headers} from 'angular2/http';
 
 @Component({
   selector: 'signup',
@@ -14,11 +14,19 @@ export class SignupComponent {
   successMsg: string = 'Registration successful';
   failureMsg: string = 'User exists';
 
-  constructor(private http: Http) { }
+  constructor(private _http: Http) { }
   
   onSubmit(username, password) {
+    
+    var body = 'username=' + username +
+      '&password=' + password;
+    
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.get('/new?username=' + username + '&password=' + password)
+    this._http.post('/new', body, {
+      headers: headers
+    })
       .map((res:Response) => res.json())
       .subscribe(
         data => {

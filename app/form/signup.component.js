@@ -22,8 +22,8 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
             }],
         execute: function() {
             SignupComponent = (function () {
-                function SignupComponent(http) {
-                    this.http = http;
+                function SignupComponent(_http) {
+                    this._http = _http;
                     this.formType = "Sign up";
                     this.result = '';
                     this.successMsg = 'Registration successful';
@@ -31,7 +31,13 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 }
                 SignupComponent.prototype.onSubmit = function (username, password) {
                     var _this = this;
-                    this.http.get('/new?username=' + username + '&password=' + password)
+                    var body = 'username=' + username +
+                        '&password=' + password;
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    this._http.post('/new', body, {
+                        headers: headers
+                    })
                         .map(function (res) { return res.json(); })
                         .subscribe(function (data) {
                         _this.result = data.added ? 'success' : 'failure';

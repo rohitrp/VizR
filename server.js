@@ -17,10 +17,10 @@ app.use('/app', express.static(__dirname + '/app'));
 app.use('/build', express.static(__dirname + '/build'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.get('/new', function(req, res) {
-  var params = url.parse(req.url, true);
-  var username = params.query.username;
-  var password = params.query.password;
+app.post('/new', function(req, res) {
+
+  var username = req.body.username;
+  var password = req.body.password;
 
   mongo.connect(mongoUrl, function (err, db) {
     if (err) throw err;
@@ -101,8 +101,6 @@ app.post('/api/user/post', function (req, res) {
     var postsCollection = db.collection('posts');
     var body = req.body;
 
-    console.log(body);
-    
     try {
       if (body.type === 'title') {
         postsCollection.update(
