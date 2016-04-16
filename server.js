@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/app', express.static(__dirname + '/app'));
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/build', express.static(__dirname + '/build'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.get('/new', function(req, res) {
