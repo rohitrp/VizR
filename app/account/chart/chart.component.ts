@@ -124,6 +124,26 @@ export class ChartComponent implements OnInit {
     this.addPlot();
   }
 
+  addLabels() {
+    d3.select('#plot-' + this.entryId)
+      .selectAll('.x-label, .y-label').remove();
+
+    this.svg.append('text')
+      .classed('x-label', true)
+      .attr('x', this.width/2)
+      .attr('y', this.height + 40)
+      .style('text-anchor', 'middle')
+      .text(this.xVal);
+
+    this.svg.append('text')
+      .classed('y-label', true)
+      .attr('x', -this.height/2)
+      .attr('y', -50)
+      .style('text-anchor', 'middle')
+      .text(this.yVal)
+      .attr('transform', 'rotate(-90)');
+  }
+
   addPlot() {
 
     this.initializeAxes();
@@ -172,6 +192,8 @@ export class ChartComponent implements OnInit {
       .attr('r', 5)
       .style('fill', 'teal');
 
+    this.addLabels();
+
   }
 
   updatePlot(xVal: string, yVal: string, xScaleType: string, yScaleType: string) {
@@ -181,6 +203,8 @@ export class ChartComponent implements OnInit {
     this.yScaleType = yScaleType;
 
     this.initializeAxes();
+
+    this.addLabels();
 
     this.svg.call(this.zoom);
 
