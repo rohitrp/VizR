@@ -14,7 +14,8 @@ import {SignupComponent} from "../form/signup.component";
   {
     path: '/login',
     name: 'Login',
-    component: LoginComponent
+    component: LoginComponent,
+    useAsDefault: true
   },
   {
     path: '/signup',

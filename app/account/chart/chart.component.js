@@ -190,6 +190,10 @@ System.register(['angular2/core', "../user/user.service"], function(exports_1, c
                     core_1.Input(), 
                     __metadata('design:type', Number)
                 ], ChartComponent.prototype, "entryId", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Boolean)
+                ], ChartComponent.prototype, "showOptions", void 0);
                 ChartComponent = __decorate([
                     core_1.Component({
                         selector: 'chart',

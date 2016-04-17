@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', "../material-design/material-design.directive"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, material_design_directive_1;
     var SignupComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (material_design_directive_1_1) {
+                material_design_directive_1 = material_design_directive_1_1;
             }],
         execute: function() {
             SignupComponent = (function () {
@@ -50,7 +53,8 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                     core_1.Component({
                         selector: 'signup',
                         templateUrl: 'app/form/template/form.html',
-                        styleUrls: ['app/form/template/style.css']
+                        styleUrls: ['app/form/template/style.css'],
+                        directives: [material_design_directive_1.MdlUpgradeDirective]
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
                 ], SignupComponent);

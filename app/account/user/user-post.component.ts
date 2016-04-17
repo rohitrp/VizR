@@ -3,6 +3,7 @@ import {UserService} from "./user.service";
 import {TextComponent} from "./text.component";
 import {RouteParams} from "angular2/router";
 import {ChartComponent} from "./../chart/chart.component";
+import {MdlUpgradeDirective} from "../../material-design/material-design.directive";
 
 @Component({
   selector: 'user-post',
@@ -12,9 +13,24 @@ import {ChartComponent} from "./../chart/chart.component";
     a {
       cursor: pointer;
     }
+    .mdl-grid {
+        text-align: left;;
+    }
+    .mdl-tabs {
+        margin-bottom: 50px;
+    }
+    .mdl-textfield {
+        width: 80%;
+    }
+    .container {
+        text-align: center;
+    }
+    #textArea {
+        width: 100%;
+    }
     `
   ],
-  directives: [TextComponent, ChartComponent]
+  directives: [TextComponent, ChartComponent, MdlUpgradeDirective]
 })
 
 export class UserPostComponent implements OnInit {
@@ -31,6 +47,8 @@ export class UserPostComponent implements OnInit {
   }
   
   addEntry(text: string, textArea: HTMLTextAreaElement) {
+    if (text === '') return;
+
     const data = {
       id: this.id,
       type: 'text',

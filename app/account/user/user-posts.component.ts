@@ -1,11 +1,17 @@
 import {Component, OnInit, Injector} from "angular2/core";
 import {RouteParams, ROUTER_DIRECTIVES} from "angular2/router";
 import {UserService} from "./user.service";
+import {MdlUpgradeDirective} from "../../material-design/material-design.directive";
 
 @Component({
   selector: 'user-posts',
   templateUrl: 'app/account/user/template/user-posts.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  styles: [`
+        a {
+            text-decoration: none;
+        }
+    `],
+  directives: [ROUTER_DIRECTIVES, MdlUpgradeDirective]
 })
 
 export class UserPostsComponent implements OnInit {
@@ -30,6 +36,8 @@ export class UserPostsComponent implements OnInit {
   }
 
   addPost(postName:string, input:HTMLInputElement) {
+
+    if (postName === '') return;
 
     this._userService.addPost(postName);
 

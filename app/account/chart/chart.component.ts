@@ -16,6 +16,7 @@ export class ChartComponent implements OnInit {
   @Input() yScaleType: string;
   @Input() postId: number;
   @Input() entryId: number;
+  @Input() showOptions: boolean;
 
   private pulsarData: any;
   private options = ['Pulsar', 'TOAs', 'Raw Profiles',

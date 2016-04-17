@@ -41,7 +41,8 @@ System.register(['angular2/core', 'angular2/router', "../form/login.component", 
                         {
                             path: '/login',
                             name: 'Login',
-                            component: login_component_1.LoginComponent
+                            component: login_component_1.LoginComponent,
+                            useAsDefault: true
                         },
                         {
                             path: '/signup',

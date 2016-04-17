@@ -3,17 +3,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
-var lib = require('bower-files')({
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
-  }
-});
+var lib = require('bower-files')();
 
 var utilities = require('gulp-util');
 var bulidProduction = utilities.env.production;

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', '../material-design/material-design.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1;
+    var core_1, http_1, router_1, material_design_directive_1;
     var LoginComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (material_design_directive_1_1) {
+                material_design_directive_1 = material_design_directive_1_1;
             }],
         execute: function() {
             LoginComponent = (function () {
@@ -52,7 +55,8 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(
                     core_1.Component({
                         selector: 'login',
                         templateUrl: 'app/form/template/form.html',
-                        styleUrls: ['app/form/template/style.css']
+                        styleUrls: ['app/form/template/style.css'],
+                        directives: [material_design_directive_1.MdlUpgradeDirective]
                     }), 
                     __metadata('design:paramtypes', [http_1.Http, router_1.Router])
                 ], LoginComponent);

@@ -2,10 +2,13 @@ import {Component} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {Router} from 'angular2/router';
 
+import {MdlUpgradeDirective} from '../material-design/material-design.directive';
+
 @Component({
   selector: 'login',
   templateUrl: 'app/form/template/form.html',
-  styleUrls: ['app/form/template/style.css']
+  styleUrls: ['app/form/template/style.css'],
+  directives: [MdlUpgradeDirective]
 })
 
 export class LoginComponent {

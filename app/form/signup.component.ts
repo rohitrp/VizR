@@ -1,10 +1,12 @@
 import {Component} from 'angular2/core';
 import {Http, Response, Headers} from 'angular2/http';
+import {MdlUpgradeDirective} from "../material-design/material-design.directive";
 
 @Component({
   selector: 'signup',
   templateUrl: 'app/form/template/form.html',
-  styleUrls: ['app/form/template/style.css']
+  styleUrls: ['app/form/template/style.css'],
+  directives: [MdlUpgradeDirective]
 })
 
 export class SignupComponent {

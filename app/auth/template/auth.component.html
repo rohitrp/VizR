@@ -1,9 +1,10 @@
-<div class="container">
-  <div class="row">
-    <nav>
-      <a [routerLink]="['Login']">Login</a>
-      <a [routerLink]="['Signup']">Signup</a>
-    </nav>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+    <a [routerLink]="['Login']"
+       class="mdl-tabs__tab is-active">Login</a>
+
+    <a [routerLink]="['Signup']"
+       class="mdl-tabs__tab">Signup</a>
   </div>
 </div>
 <router-outlet></router-outlet>

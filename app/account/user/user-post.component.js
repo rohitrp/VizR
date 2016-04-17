@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./user.service", "./text.component", "angular2/router", "./../chart/chart.component"], function(exports_1, context_1) {
+System.register(['angular2/core', "./user.service", "./text.component", "angular2/router", "./../chart/chart.component", "../../material-design/material-design.directive"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, user_service_1, text_component_1, router_1, chart_component_1;
+    var core_1, user_service_1, text_component_1, router_1, chart_component_1, material_design_directive_1;
     var UserPostComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
             },
             function (chart_component_1_1) {
                 chart_component_1 = chart_component_1_1;
+            },
+            function (material_design_directive_1_1) {
+                material_design_directive_1 = material_design_directive_1_1;
             }],
         execute: function() {
             UserPostComponent = (function () {
@@ -41,6 +44,8 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
                     this.postEntries = this._userService.getPostEntries(this.id);
                 };
                 UserPostComponent.prototype.addEntry = function (text, textArea) {
+                    if (text === '')
+                        return;
                     var data = {
                         id: this.id,
                         type: 'text',
@@ -57,9 +62,9 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
                         selector: 'user-post',
                         templateUrl: 'app/account/user/template/user-post.component.html',
                         styles: [
-                            "\n    a {\n      cursor: pointer;\n    }\n    "
+                            "\n    a {\n      cursor: pointer;\n    }\n    .mdl-grid {\n        text-align: left;;\n    }\n    .mdl-tabs {\n        margin-bottom: 50px;\n    }\n    .mdl-textfield {\n        width: 80%;\n    }\n    .container {\n        text-align: center;\n    }\n    #textArea {\n        width: 100%;\n    }\n    "
                         ],
-                        directives: [text_component_1.TextComponent, chart_component_1.ChartComponent]
+                        directives: [text_component_1.TextComponent, chart_component_1.ChartComponent, material_design_directive_1.MdlUpgradeDirective]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, router_1.RouteParams])
                 ], UserPostComponent);

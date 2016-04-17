@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./user.service"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "./user.service", "../../material-design/material-design.directive"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/router", "./user.service"], function
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, user_service_1;
+    var core_1, router_1, user_service_1, material_design_directive_1;
     var UserPostsComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(["angular2/core", "angular2/router", "./user.service"], function
             },
             function (user_service_1_1) {
                 user_service_1 = user_service_1_1;
+            },
+            function (material_design_directive_1_1) {
+                material_design_directive_1 = material_design_directive_1_1;
             }],
         execute: function() {
             UserPostsComponent = (function () {
@@ -39,6 +42,8 @@ System.register(["angular2/core", "angular2/router", "./user.service"], function
                     }, function (err) { return console.error(err); }, function () { return console.log('Done'); });
                 };
                 UserPostsComponent.prototype.addPost = function (postName, input) {
+                    if (postName === '')
+                        return;
                     this._userService.addPost(postName);
                     input.value = null;
                 };
@@ -46,7 +51,8 @@ System.register(["angular2/core", "angular2/router", "./user.service"], function
                     core_1.Component({
                         selector: 'user-posts',
                         templateUrl: 'app/account/user/template/user-posts.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        styles: ["\n        a {\n            text-decoration: none;\n        }\n    "],
+                        directives: [router_1.ROUTER_DIRECTIVES, material_design_directive_1.MdlUpgradeDirective]
                     }), 
                     __metadata('design:paramtypes', [user_service_1.UserService, core_1.Injector])
                 ], UserPostsComponent);

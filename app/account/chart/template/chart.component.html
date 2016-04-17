@@ -1,4 +1,5 @@
 <form class="scatter-options form-inline"
+      *ngIf="showOptions"
       (change)="updatePlot(xOptions.value, yOptions.value,
                           xScale.value, yScale.value)"
       (submit)="addPlotEntry(xOptions.value, yOptions.value,
@@ -26,7 +27,9 @@
     <option value="linear">Linear</option>
     <option value="log" selected>Log</option>
   </select>
-  <button type="submit" class="btn btn-primary">Add</button>
+  <button type="submit"
+          class="mdl-button mdl-js-button mdl-button--raised
+                mdl-js-ripple-effect mdl-button--colored">Add</button>
 
 </form>
 

@@ -1,17 +1,30 @@
-<div class="container">
-  <h3>Posts by {{ username }}</h3>
-  <form (submit)="addPost(postName.value, postName)">
-    <input type="text" #postName>
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
-  </form>
-  <ul>
-    <li *ngFor="#post of posts">
-      <a [routerLink]="['PostId', {id: post._id }]">
-        {{ post.title | uppercase}}
-      </a>
-    </li>
-  </ul>
+<div mdlUpgrade class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <h3>Posts by {{username}}</h3>
+    <form (submit)="addPost(postName.value, postName)">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input type="text" class="mdl-textfield__input"
+               id="postName" #postName>
+        <label for="postName" class="mdl-textfield__label">Title</label>
+      </div>
+      <button type="submit"
+              class="mdl-button mdl-js-button mdl-button--fab
+                    mdl-button--mini-fab mdl-button--colored
+                    mdl-js-ripple-effect">
+        <i class="material-icons">add</i>
+      </button>
+    </form>
 
+    <ul class="mdl-list">
+      <li class="mdl-list__item" *ngFor="#post of posts">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">note</i>
+          <a [routerLink]="['PostId', {id: post._id}]">
+            {{ post.title}}
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
 </div>

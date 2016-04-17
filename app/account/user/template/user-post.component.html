@@ -1,16 +1,50 @@
-<div class="container">
-  <ul class="nav nav-pills">
-    <li role="presentation" [class.active]="currentTab === 'text'">
-      <a (click)="tabToggle('text')">Text</a>
-    </li>
-    <li role="presentation" [class.active]="currentTab === 'plot'">
-      <a (click)="tabToggle('plot')">Plot</a>
-    </li>
-  </ul>
+<div mdlUpgrade class="container">
+  <div class="mdl-grid">
+    <ul class="mdl-list" style="margin: 0 auto;">
+      <li class="mdl-list__item" *ngFor="#post of postEntries">
+        <span class="mdl-list__item-primary-content">
+                  <text *ngIf="post.type === 'text'"
+                        [text]="post.text"
+                        [entryId]="post.index"></text>
+
+        <chart *ngIf="post.type === 'plot'"
+               [xVal]="post.xVal"
+               [yVal]="post.yVal"
+               [xScaleType]="post.xScaleType"
+               [yScaleType]="post.yScaleType"
+               [postId]="id"
+               [entryId]="post.index"
+               [showOptions]="false"></chart>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+      <a (click)="tabToggle('text')"
+         class="mdl-tabs__tab" [class.is-active]="currentTab === 'text'">
+        Text
+      </a>
+      <a (click)="tabToggle('plot')"
+         class="mdl-tabs__tab" [class.is-active]="currentTab === 'plot'">
+        Plot
+      </a>
+    </div>
+  </div>
+
   <form *ngIf="currentTab === 'text'"
         (submit)="addEntry(textArea.value, textArea)">
-    <textarea class="form-control" rows="4" #textArea></textarea>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <div class="mdl-textfield mdl-js-textfield">
+      <textarea class="mdl-textfield__input"
+                id="textArea" rows="4" #textArea></textarea>
+      <label for="textArea" class="mdl-textfield__label">Text lines...</label>
+    </div>
+    <button type="submit"
+            class="mdl-button mdl-js-button mdl-button--raised
+                  mdl-js-ripple-effect mdl-button--colored">
+      Add
+    </button>
   </form>
 
   <form *ngIf="currentTab === 'plot'"
@@ -21,21 +55,10 @@
            [xScaleType]="'linear'"
            [yScaleType]="'log'"
            [postId]="id"
-           [entryId]="0"></chart>
+           [entryId]="0"
+           [showOptions]="true"></chart>
   </form>
 
-  <div class="row" *ngFor="#post of postEntries">
-    <text *ngIf="post.type === 'text'"
-          [text]="post.text"
-          [entryId]="post.index"></text>
-
-    <chart *ngIf="post.type === 'plot'"
-           [xVal]="post.xVal"
-           [yVal]="post.yVal"
-           [xScaleType]="post.xScaleType"
-           [yScaleType]="post.yScaleType"
-           [postId]="id"
-           [entryId]="post.index"></chart>
-  </div>
 </div>
+
 

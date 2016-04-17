@@ -1,29 +1,33 @@
-<div class="container">
-  <div class="row">
-    <form class="form-horizontal" (submit)="onSubmit(username.value, password.value)">
-      <div class="form-group">
-        <label for="username" class="col-sm-offset-2 col-sm-2 control-label">Username</label>
-        <div class="col-sm-6">
-          <input type="username" class="form-control" id="username" placeholder="Username" #username>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="password" class="col-sm-offset-2 col-sm-2 control-label">Password</label>
-        <div class="col-sm-6">
-          <input type="password" class="form-control" id="password" placeholder="Password" #password>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
-          <button type="submit" class="btn btn-default">{{ formType }}</button>
-        </div>
-      </div>
-    </form>
+<div mdlUpgrade class="container">
 
-    <div class="status">
-      <p *ngIf="result === 'success'">{{ successMsg }}</p>
-      <p *ngIf="result === 'failure'">{{ failureMsg }}</p>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+      <form (submit)="onSubmit(username.value, password.value)">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input type="text" class="mdl-textfield__input"
+                 id="username" #username required>
+          <label for="username" class="mdl-textfield__label">Username</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input type="password" class="mdl-textfield__input"
+                 id="password" #password required>
+          <label for="password" class="mdl-textfield__label">Password</label>
+        </div>
+
+        <button type="submit"
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+          {{ formType }}
+        </button>
+
+      </form>
+
     </div>
+    <div class="mdl-cell mdl-cell--4-col"></div>
+  </div>
+  <div class="status">
+    <p *ngIf="result === 'success'">{{ successMsg }}</p>
+    <p *ngIf="result === 'failure'">{{ failureMsg }}</p>
   </div>
 </div>
 
