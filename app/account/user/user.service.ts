@@ -86,6 +86,10 @@ export class UserService {
       );
   }
   
+  getPostTitle(id: number) {
+    return POSTS[id].title;
+  }
+  
   getPostEntries(id: number) {
     return POSTS[id].post;
   }

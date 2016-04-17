@@ -42,6 +42,7 @@ System.register(['angular2/core', "./user.service", "./text.component", "angular
                 UserPostComponent.prototype.ngOnInit = function () {
                     this.id = +this._routeParams.get('id');
                     this.postEntries = this._userService.getPostEntries(this.id);
+                    this.postTitle = this._userService.getPostTitle(this.id);
                 };
                 UserPostComponent.prototype.addEntry = function (text, textArea) {
                     if (text === '')

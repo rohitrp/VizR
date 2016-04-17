@@ -80,6 +80,9 @@ System.register(["angular2/core", "angular2/http"], function(exports_1, context_
                         .map(function (res) { return res.json(); })
                         .subscribe(function (data) { return console.log('Post added to database'); }, function (err) { return console.error(err); }, function () { return console.log('done'); });
                 };
+                UserService.prototype.getPostTitle = function (id) {
+                    return POSTS[id].title;
+                };
                 UserService.prototype.getPostEntries = function (id) {
                     return POSTS[id].post;
                 };

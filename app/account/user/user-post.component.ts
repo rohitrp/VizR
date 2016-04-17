@@ -37,6 +37,7 @@ export class UserPostComponent implements OnInit {
   id: number;
   postEntries: String[];
   currentTab = 'text';
+  postTitle: string;
   
   constructor(private _userService: UserService,
               private _routeParams: RouteParams) { }
@@ -44,6 +45,7 @@ export class UserPostComponent implements OnInit {
   ngOnInit() {
     this.id = +this._routeParams.get('id');
     this.postEntries = this._userService.getPostEntries(this.id);
+    this.postTitle = this._userService.getPostTitle(this.id);
   }
   
   addEntry(text: string, textArea: HTMLTextAreaElement) {
